@@ -139,7 +139,10 @@ export default function MedIndicaPage() {
       descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
       descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
       linkAR: "https://meli.la/2o8SYCT", 
-      linkBR: "#", 
+      linkBR: "#",
+	imagem:
+" https://http2.mlstatic.com/D_NQ_NP_2X_899213-MLA106594269899_022026-F.webp"
+	 
       icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     }
   ];
