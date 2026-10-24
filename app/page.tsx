@@ -129,6 +129,18 @@ export default function MedIndicaPage() {
       linkAR: "#",
       linkBR: "#",
       icone: <Book className="w-8 h-8 text-[#19382B]" />
+    },
+    {
+      id: 3,
+      tagPT: "CONECTIVIDADE",
+      tagES: "CONECTIVIDAD",
+      nomePT: "Internet Satélite Starlink Mini X",
+      nomeES: "Internet Vía Satélite Starlink Mini X",
+      descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
+      descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
+      linkAR: "https://meli.la/2o8SYCT", 
+      linkBR: "#", 
+      icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     }
   ];
 
