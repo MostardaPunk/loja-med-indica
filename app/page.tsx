@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe } from 'lucide-react';
+import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe, Wifi } from 'lucide-react';
 
 export default function MedIndicaPage() {
   const [abaAtiva, setAbaAtiva] = useState('calouro');
@@ -139,11 +139,8 @@ export default function MedIndicaPage() {
       descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
       descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
       linkAR: "https://meli.la/2o8SYCT", 
-      linkBR: "#",
-	imagem:
-" https://http2.mlstatic.com/D_NQ_NP_2X_899213-MLA106594269899_022026-F.webp"
-	 
-      icone: <Laptop className="w-8 h-8 text-[#19382B]" />
+      linkBR: "#", 
+      icone: <Wifi className="w-8 h-8 text-[#19382B]" />
     }
   ];
 
@@ -292,14 +289,15 @@ export default function MedIndicaPage() {
           </div>
         </div>
 
-        {/* LISTA DE PRODUTOS */}
+        {/* LISTA DE PRODUTOS COM ÍCONES */}
         <div className="px-8 max-w-4xl mx-auto">
           <div className="space-y-6">
             {produtosAtuais.map((produto) => (
               <div key={produto.id} className="border-4 border-[#19382B] bg-white rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_#19382B]">
-                <div className="bg-[#F3EFE7] rounded-2xl p-6 border-2 border-[#19382B]">
+                <div className="bg-[#F3EFE7] rounded-2xl p-6 border-2 border-[#19382B] flex items-center justify-center shrink-0">
                   {produto.icone}
                 </div>
+                
                 <div className="flex-1 text-center sm:text-left">
                   <p className="text-[#E06D53] text-xs font-black tracking-widest mb-1 uppercase">
                     {idioma === 'pt' ? produto.tagPT : produto.tagES}
