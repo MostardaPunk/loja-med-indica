@@ -289,7 +289,7 @@ export default function MedIndicaPage() {
           </div>
         </div>
 
-        {/* LISTA DE PRODUTOS COM ÍCONES */}
+        {/* LISTA DE PRODUTOS */}
         <div className="px-8 max-w-4xl mx-auto">
           <div className="space-y-6">
             {produtosAtuais.map((produto) => (
