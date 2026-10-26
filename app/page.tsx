@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe, Wifi } from 'lucide-react';
+import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe, Wifi, Zap } from 'lucide-react';
 
 export default function MedIndicaPage() {
   const [abaAtiva, setAbaAtiva] = useState('calouro');
@@ -86,7 +86,7 @@ export default function MedIndicaPage() {
   ];
 
   // ========================================================================
-  // 🛒 2. PRODUTOS DAS ABAS INTERATIVAS
+  // 🛒 2. PRODUTOS DAS ABAS INTERATIVAS (COM CARREGADOR DE IPHONE)
   // ========================================================================
   const produtosCalouro = [
     {
@@ -136,6 +136,17 @@ export default function MedIndicaPage() {
       link: "https://meli.la/2o8SYCT", 
       imagem: "/images/starlink.webp",
       icone: <Wifi className="w-8 h-8 text-[#19382B]" />
+    },
+    {
+      id: 4,
+      tagPT: "TECNOLOGIA",
+      tagES: "TECNOLOGÍA",
+      nomePT: "Carregador Rápido para iPhone",
+      nomeES: "Cargador Rápido para iPhone",
+      descricaoPT: "Essencial para manter o telemóvel carregado durante os plantões e longas horas de estudo.",
+      descricaoES: "Esencial para mantener el teléfono cargado durante las guardias y largas horas de estudio.",
+      link: "#", // <--- Coloque o seu link de afiliado do carregador aqui
+      icone: <Zap className="w-8 h-8 text-[#E06D53]" />
     }
   ];
 
@@ -282,7 +293,7 @@ export default function MedIndicaPage() {
           </div>
         </div>
 
-        {/* LISTA DE PRODUTOS COM BOTÃO ÚNICO */}
+        {/* LISTA DE PRODUTOS */}
         <div className="px-8 max-w-4xl mx-auto">
           <div className="space-y-6">
             {produtosAtuais.map((produto) => (
@@ -308,7 +319,7 @@ export default function MedIndicaPage() {
                   </p>
                 </div>
 
-                {/* BOTÃO ÚNICO DE COMPRA */}
+                {/* BOTÃO DE COMPRA */}
                 <div className="w-full sm:w-auto">
                   <a href={produto.link} target="_blank" rel="noreferrer" className="bg-[#E06D53] text-white text-sm font-bold px-8 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
                     {t.btnComprar} <ArrowUpRight className="w-4 h-4" />
