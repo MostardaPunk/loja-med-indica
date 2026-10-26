@@ -35,7 +35,7 @@ export default function MedIndicaPage() {
       tagHero: "LA SELECCIÓN PARA ESTUDIANTES DE MEDICINA",
       tituloHero1: "TU ATAJO",
       tituloHero2: "A MED.",
-      descHero: "Hallazgos útiles para cada período de la facultad — desde la desde la primera clase hasta la primera guardia.",
+      descHero: "Hallazgos útiles para cada período de la facultad — desde la primera clase hasta la primera guardia.",
       tagVitrine: "Encuentra tu fase",
       tituloVitrine: "3 VITRINAS.",
       subVitrine: "1 SOLO ENFOQUE: MED.",
@@ -152,7 +152,7 @@ export default function MedIndicaPage() {
       nomeES: "Cargador Rápido para iPhone",
       descricaoPT: "Essencial para manter o telemóvel carregado durante os plantões e longas horas de estudo.",
       descricaoES: "Esencial para mantener el teléfono cargado durante las guardias y largas horas de estudio.",
-      link: "#",
+      link: "https://meli.la/1Bprs57", 
       imagem: "",
       preco: "20,669 $",
       icone: <Zap className="w-8 h-8 text-[#E06D53]" />
