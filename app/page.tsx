@@ -99,6 +99,7 @@ export default function MedIndicaPage() {
       descricaoES: "Esencial para el mate y café en las madrugadas de estudio.",
       link: "https://www.mercadolibre.com.ar", 
       imagem: "",
+      preco: "Ver Oferta",
       icone: <Coffee className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -114,6 +115,7 @@ export default function MedIndicaPage() {
       descricaoES: "Salva tu cuello en las horas de lectura de Crecimiento y Desarrollo.",
       link: "#",
       imagem: "",
+      preco: "Ver Oferta",
       icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -126,6 +128,7 @@ export default function MedIndicaPage() {
       descricaoES: "Obligatorio para las clases prácticas de laboratorio.",
       link: "#",
       imagem: "",
+      preco: "Ver Oferta",
       icone: <Book className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -137,7 +140,8 @@ export default function MedIndicaPage() {
       descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
       descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
       link: "https://meli.la/2o8SYCT", 
-      imagem: "/images/starlink.webp",
+      imagem: "", // Mantém o símbolo de internet (ícone Wifi)
+      preco: "219,000 $",
       icone: <Wifi className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -150,6 +154,7 @@ export default function MedIndicaPage() {
       descricaoES: "Esencial para mantener el teléfono cargado durante las guardias y largas horas de estudio.",
       link: "#",
       imagem: "",
+      preco: "20,669 $",
       icone: <Zap className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -165,6 +170,7 @@ export default function MedIndicaPage() {
       descricaoES: "Tela antimanchas y antiarrugas, perfecto para las guardias.",
       link: "#",
       imagem: "",
+      preco: "Ver Oferta",
       icone: <Activity className="w-8 h-8 text-[#E06D53]" />
     },
     {
@@ -177,6 +183,7 @@ export default function MedIndicaPage() {
       descricaoES: "La mejor acústica para Semiología. Inversión para toda la vida.",
       link: "#",
       imagem: "",
+      preco: "Ver Oferta",
       icone: <Stethoscope className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -243,101 +250,4 @@ export default function MedIndicaPage() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div>
             <p className="text-[#E06D53] text-xs font-bold tracking-widest uppercase mb-2">{t.tagVitrine}</p>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase">{t.tituloVitrine}<br/>{t.subVitrine}</h2>
-          </div>
-          <p className="max-w-xs font-medium text-sm text-right hidden md:block">
-            {t.descVitrine}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {vitrines.map((vitrine) => (
-            <div key={vitrine.id} className="group cursor-pointer">
-              <div className={`${vitrine.corBg} ${vitrine.corTexto} p-8 rounded-3xl h-64 border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] flex flex-col justify-between mb-4 group-hover:-translate-y-2 transition-transform`}>
-                <div className="flex justify-between items-center text-xs font-bold opacity-80 uppercase">
-                  <span>med.indica</span>
-                </div>
-                <h3 className="text-4xl font-black leading-none uppercase">
-                  {idioma === 'pt' ? vitrine.tituloPT : vitrine.tituloES}
-                </h3>
-              </div>
-              <div className="flex justify-between items-start px-2">
-                <div>
-                  <p className="text-[#E06D53] text-xs font-bold mb-1">{vitrine.fase}</p>
-                  <h4 className="font-bold text-lg">{idioma === 'pt' ? vitrine.tituloPT : vitrine.tituloES}</h4>
-                  <p className="text-sm font-medium opacity-80">{idioma === 'pt' ? vitrine.descricaoPT : vitrine.descricaoES}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* LOJA E MENU DE ABAS INTERATIVAS */}
-      <section id="loja" className="bg-[#19382B] py-16 mt-8 border-t-4 border-[#19382B]">
-        
-        <div className="px-8 max-w-3xl mx-auto mb-12">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center bg-white p-2 rounded-3xl border-4 border-[#19382B] shadow-[8px_8px_0px_#19382B]">
-            <button 
-              onClick={() => setAbaAtiva('calouro')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'calouro' ? 'bg-[#E06D53] text-white border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba1}
-            </button>
-            <button 
-              onClick={() => setAbaAtiva('iniciantes')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'iniciantes' ? 'bg-[#19382B] text-white border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba2}
-            </button>
-            <button 
-              onClick={() => setAbaAtiva('avancados')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'avancados' ? 'bg-[#E8D359] text-[#19382B] border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba3}
-            </button>
-          </div>
-        </div>
-
-        {/* LISTA DE PRODUTOS */}
-        <div className="px-8 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            {produtosAtuais.map((produto) => (
-              <div key={produto.id} className="border-4 border-[#19382B] bg-white rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_#19382B]">
-                
-                <div className="w-24 h-24 bg-[#F3EFE7] rounded-2xl border-2 border-[#19382B] overflow-hidden flex items-center justify-center shrink-0">
-                  {produto.imagem ? (
-                    <img src={produto.imagem} alt={produto.nomePT} className="w-full h-full object-cover" />
-                  ) : (
-                    produto.icone
-                  )}
-                </div>
-                
-                <div className="flex-1 text-center sm:text-left">
-                  <p className="text-[#E06D53] text-xs font-black tracking-widest mb-1 uppercase">
-                    {idioma === 'pt' ? produto.tagPT : produto.tagES}
-                  </p>
-                  <h3 className="text-2xl font-black mb-2 text-[#19382B]">
-                    {idioma === 'pt' ? produto.nomePT : produto.nomeES}
-                  </h3>
-                  <p className="text-sm font-medium opacity-80 text-[#19382B]">
-                    {idioma === 'pt' ? produto.descricaoPT : produto.descricaoES}
-                  </p>
-                </div>
-
-                {/* BOTÃO DE COMPRA */}
-                <div className="w-full sm:w-auto">
-                  <a href={produto.link} target="_blank" rel="noreferrer" className="bg-[#E06D53] text-white text-sm font-bold px-8 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
-                    {t.btnComprar} <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
-}
+            <h2 className
