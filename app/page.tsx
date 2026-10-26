@@ -26,8 +26,7 @@ export default function MedIndicaPage() {
       aba1: "📦 Kit Calouro",
       aba2: "📚 Iniciantes (1º ao 3º)",
       aba3: "🩺 Avançados (4º+)",
-      btnBR: "Comprar BR",
-      btnAR: "Comprar AR"
+      btnComprar: "Ver Oferta"
     },
     es: {
       menuVitrines: "Vitrinas",
@@ -40,12 +39,11 @@ export default function MedIndicaPage() {
       tagVitrine: "Encuentra tu fase",
       tituloVitrine: "3 VITRINAS.",
       subVitrine: "1 SOLO ENFOQUE: MED.",
-      descVitrine: "Contenido organizado por la rutina real del estudiante de medicina. Encuentra lo que necesitas y vuelve a estudiar.",
+      descVitrine: "Contenido organizado por la rutina real del estudiante de medicina. Encuentra tu equipo y vuelve a estudiar.",
       aba1: "📦 Kit Ingresante",
       aba2: "📚 Iniciales (1º al 3º)",
       aba3: "🩺 Avanzados (4º+)",
-      btnBR: "Comprar BR",
-      btnAR: "Comprar AR"
+      btnComprar: "Ver Oferta"
     }
   };
 
@@ -99,8 +97,7 @@ export default function MedIndicaPage() {
       nomeES: "Termo (Stanley/Lumilagro)",
       descricaoPT: "Essencial para o mate e café nas madrugadas de estudo.",
       descricaoES: "Esencial para el mate y café en las madrugadas de estudio.",
-      linkAR: "https://www.mercadolibre.com.ar", 
-      linkBR: "https://www.mercadolivre.com.br", 
+      link: "https://www.mercadolibre.com.ar", 
       icone: <Coffee className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -114,8 +111,7 @@ export default function MedIndicaPage() {
       nomeES: "Soporte Ergonómico Notebook",
       descricaoPT: "Salva o seu pescoço nas horas de leitura de Crecimiento y Desarrollo.",
       descricaoES: "Salva tu cuello en las horas de lectura de Crecimiento y Desarrollo.",
-      linkAR: "#",
-      linkBR: "#",
+      link: "#",
       icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -126,8 +122,7 @@ export default function MedIndicaPage() {
       nomeES: "Atlas de Anatomía Humana",
       descricaoPT: "Obrigatório para as aulas práticas de laboratório.",
       descricaoES: "Obligatorio para las clases prácticas de laboratorio.",
-      linkAR: "#",
-      linkBR: "#",
+      link: "#",
       icone: <Book className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -138,8 +133,8 @@ export default function MedIndicaPage() {
       nomeES: "Internet Vía Satélite Starlink Mini X",
       descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
       descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
-      linkAR: "https://meli.la/2o8SYCT", 
-      linkBR: "#", 
+      link: "https://meli.la/2o8SYCT", 
+      imagem: "/images/starlink.webp",
       icone: <Wifi className="w-8 h-8 text-[#19382B]" />
     }
   ];
@@ -153,8 +148,7 @@ export default function MedIndicaPage() {
       nomeES: "Ambo Médico",
       descricaoPT: "Tecido anti-amasso, perfeito para os plantões.",
       descricaoES: "Tela antimanchas y antiarrugas, perfecto para las guardias.",
-      linkAR: "#",
-      linkBR: "#",
+      link: "#",
       icone: <Activity className="w-8 h-8 text-[#E06D53]" />
     },
     {
@@ -165,8 +159,7 @@ export default function MedIndicaPage() {
       nomeES: "Estetoscopio Littmann",
       descricaoPT: "A melhor acústica para Semiologia. Investimento para a vida.",
       descricaoES: "La mejor acústica para Semiología. Inversión para toda la vida.",
-      linkAR: "#",
-      linkBR: "#",
+      link: "#",
       icone: <Stethoscope className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -289,13 +282,18 @@ export default function MedIndicaPage() {
           </div>
         </div>
 
-        {/* LISTA DE PRODUTOS */}
+        {/* LISTA DE PRODUTOS COM BOTÃO ÚNICO */}
         <div className="px-8 max-w-4xl mx-auto">
           <div className="space-y-6">
             {produtosAtuais.map((produto) => (
               <div key={produto.id} className="border-4 border-[#19382B] bg-white rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_#19382B]">
-                <div className="bg-[#F3EFE7] rounded-2xl p-6 border-2 border-[#19382B] flex items-center justify-center shrink-0">
-                  {produto.icone}
+                
+                <div className="w-24 h-24 bg-[#F3EFE7] rounded-2xl border-2 border-[#19382B] overflow-hidden flex items-center justify-center shrink-0">
+                  {produto.imagem ? (
+                    <img src={produto.imagem} alt={produto.nomePT} className="w-full h-full object-cover" />
+                  ) : (
+                    produto.icone
+                  )}
                 </div>
                 
                 <div className="flex-1 text-center sm:text-left">
@@ -309,14 +307,14 @@ export default function MedIndicaPage() {
                     {idioma === 'pt' ? produto.descricaoPT : produto.descricaoES}
                   </p>
                 </div>
-                <div className="flex flex-col gap-3 w-full sm:w-auto">
-                  <a href={produto.linkBR} target="_blank" rel="noreferrer" className="bg-[#E06D53] text-white text-sm font-bold px-6 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
-                    {t.btnBR} <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                   <a href={produto.linkAR} target="_blank" rel="noreferrer" className="bg-white text-[#19382B] text-sm font-bold px-6 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
-                    {t.btnAR} <ArrowUpRight className="w-4 h-4" />
+
+                {/* BOTÃO ÚNICO DE COMPRA */}
+                <div className="w-full sm:w-auto">
+                  <a href={produto.link} target="_blank" rel="noreferrer" className="bg-[#E06D53] text-white text-sm font-bold px-8 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
+                    {t.btnComprar} <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
+
               </div>
             ))}
           </div>
