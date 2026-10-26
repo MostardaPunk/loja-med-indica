@@ -126,9 +126,9 @@ export default function MedIndicaPage() {
       nomeES: "Atlas de Anatomía Humana",
       descricaoPT: "Obrigatório para as aulas práticas de laboratório.",
       descricaoES: "Obligatorio para las clases prácticas de laboratorio.",
-      link: "#",
+      link: "https://meli.la/2hFFZs3",
       imagem: "",
-      preco: "Ver Oferta",
+      preco: "65,00 $",
       icone: <Book className="w-8 h-8 text-[#19382B]" />
     },
     {
