@@ -7,21 +7,51 @@ export default function MedIndicaPage() {
   const [filtroCategoria, setFiltroCategoria] = useState('todos');
 
   // ========================================================================
-  // 🛒 PRODUTOS DO CATÁLOGO ATUALIZADOS
+  // 🛒 PRODUTOS DO CATÁLOGO ATUALIZADOS COM OS DADOS REAIS
   // ========================================================================
   const produtos = [
     {
       id: 1,
       categoria: 'tecnologias',
       tag: "Tecnologías",
-      nome: "Auriculares Inalámbricos AirPods Pro",
-      descricao: "Cancelación activa de ruido y audio espacial para pausas de estudio.",
-      preco: "$ 149.990 ARS",
-      link: "https://www.mercadolibre.com.ar",
-      imagem: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=500&auto=format&fit=crop&q=60"
+      nome: "Kit De Internet Vía Satélite Starlink Mini X",
+      descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
+      preco: "$ 219.000",
+      link: "https://meli.la/2o8SYCT",
+      imagem: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60"
     },
     {
       id: 2,
+      categoria: 'tecnologias',
+      tag: "Tecnologías",
+      nome: "Soporte Notebook Laptop Stand Elevador Ergonómico Shoply Gris",
+      descricao: "Evita dolores cervicales durante las largas horas de lectura.",
+      preco: "$ 10.199",
+      link: "https://meli.la/2eQLC4N",
+      imagem: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 3,
+      categoria: 'diversos',
+      tag: "Diversos",
+      nome: "Termo Clasico 1.4 Lts. Asa Plegable Negro 2.0",
+      descricao: "Mantiene el agua caliente durante toda la jornada de cursada o biblioteca.",
+      preco: "$ 156.000",
+      link: "https://meli.la/26EHLpY",
+      imagem: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 4,
+      categoria: 'libros',
+      tag: "Libros",
+      nome: "Mini Netter Atlas de Anatomía Humana",
+      descricao: "De Frank H. Netter, Md. Editorial Elsevier, Tapa Blanda En Español.",
+      preco: "$ 65.000",
+      link: "https://meli.la/2hFFZs3",
+      imagem: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 5,
       categoria: 'tecnologias',
       tag: "Tecnologías",
       nome: "Cargador iphone Apple 20W USB-C a Lightning Carga Rápida",
@@ -31,7 +61,7 @@ export default function MedIndicaPage() {
       imagem: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500&auto=format&fit=crop&q=60"
     },
     {
-      id: 3,
+      id: 6,
       categoria: 'vestuario',
       tag: "Vestuario",
       nome: "Ambo Médico Unisex Talle M",
@@ -41,7 +71,7 @@ export default function MedIndicaPage() {
       imagem: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60"
     },
     {
-      id: 4,
+      id: 7,
       categoria: 'diversos',
       tag: "Diversos",
       nome: "Mochila Universitaria Resistente",
@@ -51,44 +81,14 @@ export default function MedIndicaPage() {
       imagem: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60"
     },
     {
-      id: 5,
-      categoria: 'libros',
-      tag: "Libros",
-      nome: "Gray's Anatomy (Edición en Español)",
-      descricao: "El clásico fundamental para el estudio profundo de anatomía humana.",
-      preco: "$ 89.990 ARS",
-      link: "https://meli.la/2hFFZs3",
-      imagem: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60"
-    },
-    {
-      id: 6,
-      categoria: 'tecnologias',
-      tag: "Tecnologías",
-      nome: "Internet Satelital Starlink Mini",
-      descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
-      preco: "219.000 $",
-      link: "https://meli.la/2o8SYCT",
-      imagem: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60"
-    },
-    {
-      id: 7,
-      categoria: 'diversos',
-      tag: "Diversos",
-      nome: "Termo Stanley / Lumilagro",
-      descricao: "Mantiene el agua caliente durante toda la jornada de cursada o biblioteca.",
-      preco: "156.000 $",
-      link: "https://meli.la/26EHLpY",
-      imagem: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60"
-    },
-    {
       id: 8,
       categoria: 'tecnologias',
       tag: "Tecnologías",
-      nome: "Soporte Ergonómico Notebook",
-      descricao: "Evita dolores cervicales durante las largas horas de lectura.",
-      preco: "10.199 $",
-      link: "https://meli.la/2eQLC4N",
-      imagem: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60"
+      nome: "Auriculares Inalámbricos AirPods Pro",
+      descricao: "Cancelación activa de ruido y audio espacial para pausas de estudio.",
+      preco: "$ 149.990 ARS",
+      link: "https://www.mercadolibre.com.ar",
+      imagem: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=500&auto=format&fit=crop&q=60"
     }
   ];
 
