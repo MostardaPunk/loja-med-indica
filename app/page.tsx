@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Search, User, ShoppingBag, Heart, ArrowRight, ArrowUpRight, Instagram, MessageCircle, Play } from 'lucide-react';
+import { Search, User, ShoppingBag, Heart, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export default function MedIndicaPage() {
   const [filtroCategoria, setFiltroCategoria] = useState('todos');
@@ -296,12 +296,6 @@ export default function MedIndicaPage() {
           <div className="bg-[#c9e832] text-[#0a1e14] p-1 rounded font-black text-xs">+</div>
           <span className="font-bold text-white">medíndica.</span>
           <span className="opacity-70">— El kit extraoficial de la facu</span>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Instagram className="w-4 h-4 cursor-pointer hover:text-white transition" />
-          <MessageCircle className="w-4 h-4 cursor-pointer hover:text-white transition" />
-          <Play className="w-4 h-4 cursor-pointer hover:text-white transition" />
         </div>
 
         <div className="opacity-80 text-right">
