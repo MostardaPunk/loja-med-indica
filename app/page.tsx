@@ -18,7 +18,7 @@ export default function MedIndicaPage() {
       descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
       preco: "$ 219.000",
       link: "https://meli.la/2o8SYCT",
-      imagem: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500&auto=format&fit=crop&q=60"
+      imagem: "/products/soporte-notebook.jpg"
     },
     {
       id: 2,

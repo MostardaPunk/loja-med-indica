@@ -1,0 +1,4 @@
+cd C:\Users\guuga\loja-med-indica
+git add .
+git commit -m "Corrigir imagem do Starlink Mini com link estavel"
+git push
