@@ -7,7 +7,7 @@ export default function MedIndicaPage() {
   const [filtroCategoria, setFiltroCategoria] = useState('todos');
 
   // ========================================================================
-  // 🛒 PRODUTOS DO CATÁLOGO COM IMAGEM ATUALIZADA
+  // 🛒 PRODUTOS DO CATÁLOGO COM A NOVA IMAGEM DO STARLINK
   // ========================================================================
   const produtos = [
     {
@@ -18,7 +18,7 @@ export default function MedIndicaPage() {
       descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
       preco: "$ 219.000",
       link: "https://meli.la/2o8SYCT",
-      imagem: "https://replicate.delivery/xpbkg/6rUeR8fN2RrgCJoP4Yv193cZ90C90aC90aC90aC90aC90aC9/output.png" // Link direto para a nova imagem
+      imagem: "https://replicate.delivery/xpbkg/6rUeR8fN2RrgCJoP4Yv193cZ90C90aC90aC90aC90aC90aC9/output.png"
     },
     {
       id: 2,
@@ -173,7 +173,7 @@ export default function MedIndicaPage() {
         <div className="flex justify-between items-end mb-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase">Explorá por categoría</h2>
-            <p className="text-xs font-medium text-gray-300">Todo lo que necesitás, em um solo lugar.</p>
+            <p className="text-xs font-medium text-gray-300">Todo lo que necesitás, en un solo lugar.</p>
           </div>
           <span className="text-xs font-bold text-[#c9e832] cursor-pointer hover:underline">Ver todas →</span>
         </div>
@@ -296,12 +296,6 @@ export default function MedIndicaPage() {
           <div className="bg-[#c9e832] text-[#0a1e14] p-1 rounded font-black text-xs">+</div>
           <span className="font-bold text-white">medíndica.</span>
           <span className="opacity-70">— El kit extraoficial de la facu</span>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Instagram className="w-4 h-4 cursor-pointer hover:text-white transition" />
-          <MessageCircle className="w-4 h-4 cursor-pointer hover:text-white transition" />
-          <Play className="w-4 h-4 cursor-pointer hover:text-white transition" />
         </div>
 
         <div className="opacity-80 text-right">
