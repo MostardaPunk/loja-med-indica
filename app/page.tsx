@@ -203,47 +203,67 @@ export default function MedIndicaPage() {
   return (
     <div className="min-h-screen bg-[#F3EFE7] text-[#19382B] font-sans selection:bg-[#E06D53] selection:text-white pb-24">
       
-      {/* NAVBAR */}
-      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto mb-8">
-        <div className="text-2xl font-black tracking-tighter">med.indica</div>
-        
-        <div className="hidden md:flex gap-8 text-sm font-semibold items-center">
-          <a href="#vitrines" className="hover:text-[#E06D53] transition">{t.menuVitrines}</a>
-          <a href="#loja" className="hover:text-[#E06D53] transition">{t.menuProdutos}</a>
-          
-          <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] ml-4">
-            <Globe className="w-4 h-4 text-[#19382B] ml-2" />
-            <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
-            <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
+      {/* SECÇÃO DO HERO COM VÍDEO DE FUNDO EM SEGUNDO PLANO */}
+      <div className="relative overflow-hidden bg-[#19382B] text-white pb-20 pt-6">
+        {/* VÍDEO DE FUNDO EM LOOP */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-doctor-writing-a-prescription-42861-large.mp4" type="video/mp4" />
+        </video>
+
+        {/* CAMADA DE SOBREPOSIÇÃO PARA GARANTIR LEGIBILIDADE */}
+        <div className="absolute inset-0 bg-[#F3EFE7] opacity-85"></div>
+
+        {/* CONTEÚDO DO TOPO (NAVBAR + HERO) */}
+        <div className="relative z-10 text-[#19382B]">
+          {/* NAVBAR */}
+          <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto mb-8">
+            <div className="text-2xl font-black tracking-tighter">med.indica</div>
+            
+            <div className="hidden md:flex gap-8 text-sm font-semibold items-center">
+              <a href="#vitrines" className="hover:text-[#E06D53] transition">{t.menuVitrines}</a>
+              <a href="#loja" className="hover:text-[#E06D53] transition">{t.menuProdutos}</a>
+              
+              <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] ml-4">
+                <Globe className="w-4 h-4 text-[#19382B] ml-2" />
+                <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
+                <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
+              </div>
+            </div>
+
+            <a href="#loja" className="bg-[#19382B] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition hidden md:block">
+              {t.btnVerOfertas}
+            </a>
+          </nav>
+
+          {/* MENU MOBILE IDIOMA */}
+          <div className="flex justify-center md:hidden mb-8">
+             <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B]">
+                <Globe className="w-4 h-4 text-[#19382B] ml-2" />
+                <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
+                <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
+              </div>
           </div>
+
+          {/* HERO SECTION */}
+          <header className="px-8 pb-4 max-w-7xl mx-auto flex flex-col items-center text-center">
+            <div className="inline-block bg-[#E8D359] text-xs font-bold px-3 py-1 rounded-full border-2 border-[#19382B] mb-6 shadow-[2px_2px_0px_#19382B]">
+              {t.tagHero}
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tight mb-4 uppercase">
+              {t.tituloHero1} <br/><span className="text-[#E06D53]">{t.tituloHero2}</span>
+            </h1>
+            <p className="text-lg font-medium max-w-xl opacity-80">
+              {t.descHero}
+            </p>
+          </header>
         </div>
-
-        <a href="#loja" className="bg-[#19382B] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition hidden md:block">
-          {t.btnVerOfertas}
-        </a>
-      </nav>
-
-      {/* MENU MOBILE IDIOMA */}
-      <div className="flex justify-center md:hidden mb-8">
-         <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B]">
-            <Globe className="w-4 h-4 text-[#19382B] ml-2" />
-            <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
-            <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
-          </div>
       </div>
-
-      {/* HERO SECTION */}
-      <header className="px-8 pb-12 max-w-7xl mx-auto flex flex-col items-center text-center">
-        <div className="inline-block bg-[#E8D359] text-xs font-bold px-3 py-1 rounded-full border-2 border-[#19382B] mb-6 shadow-[2px_2px_0px_#19382B]">
-          {t.tagHero}
-        </div>
-        <h1 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tight mb-4 uppercase">
-          {t.tituloHero1} <br/><span className="text-[#E06D53]">{t.tituloHero2}</span>
-        </h1>
-        <p className="text-lg font-medium max-w-xl opacity-80">
-          {t.descHero}
-        </p>
-      </header>
 
       {/* SECÇÃO 3 VITRINES */}
       <section id="vitrines" className="px-8 py-16 max-w-7xl mx-auto border-t-2 border-[#19382B]">
