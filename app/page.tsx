@@ -1,370 +1,301 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe, Wifi, Zap } from 'lucide-react';
+import { Book, Stethoscope, Coffee, Laptop, Activity, ArrowRight, ArrowUpRight, Globe, Wifi, Zap, Heart, Search, ShoppingBag, User } from 'lucide-react';
 
 export default function MedIndicaPage() {
-  const [abaAtiva, setAbaAtiva] = useState('calouro');
-  const [idioma, setIdioma] = useState('pt');
+  const [filtroCategoria, setFiltroCategoria] = useState('todos');
+  const [idioma, setIdioma] = useState('es');
 
   // ========================================================================
-  // 🌍 DICIONÁRIO GERAL DO SITE
+  // 🛒 CATÁLOGO COMPLETO DE PRODUTOS BASEADO NO DESIGN
   // ========================================================================
-  const textos = {
-    pt: {
-      menuVitrines: "Vitrines",
-      menuProdutos: "Produtos",
-      btnVerOfertas: "ver ofertas",
-      tagHero: "A CURADORIA PARA ESTUDANTES DE MEDICINA",
-      tituloHero1: "SEU ATALHO",
-      tituloHero2: "PRA MED.",
-      descHero: "Achados úteis para cada período da faculdade — da primeira aula ao primeiro plantão.",
-      tagVitrine: "Encontre a sua fase",
-      tituloVitrine: "3 VITRINES.",
-      subVitrine: "1 SÓ FOCO: MED.",
-      descVitrine: "Conteúdo organizado pela rotina real de quem estuda medicina. Encontre o que precisa e volte para a matéria.",
-      aba1: "📦 Kit Calouro",
-      aba2: "📚 Iniciantes (1º ao 3º)",
-      aba3: "🩺 Avançados (4º+)",
-      btnComprar: "Ver Oferta"
-    },
-    es: {
-      menuVitrines: "Vitrinas",
-      menuProdutos: "Productos",
-      btnVerOfertas: "ver ofertas",
-      tagHero: "LA SELECCIÓN PARA ESTUDIANTES DE MEDICINA",
-      tituloHero1: "TU ATAJO",
-      tituloHero2: "A MED.",
-      descHero: "Hallazgos útiles para cada período de la facultad — desde la primera clase hasta la primera guardia.",
-      tagVitrine: "Encuentra tu fase",
-      tituloVitrine: "3 VITRINAS.",
-      subVitrine: "1 SOLO ENFOQUE: MED.",
-      descVitrine: "Contenido organizado por la rutina real del estudiante de medicina. Encuentra tu equipo y vuelve a estudiar.",
-      aba1: "📦 Kit Ingresante",
-      aba2: "📚 Iniciales (1º al 3º)",
-      aba3: "🩺 Avanzados (4º+)",
-      btnComprar: "Ver Oferta"
-    }
-  };
-
-  const t = idioma === 'pt' ? textos.pt : textos.es;
-
-  // ========================================================================
-  // 🛒 1. SECÇÃO DAS VITRINES
-  // ========================================================================
-  const vitrines = [
+  const produtos = [
     {
       id: 1,
-      fase: "TEMPLATE 01",
-      tituloPT: "Começando agora",
-      tituloES: "Empezando ahora",
-      descricaoPT: "Jaleco e materiais para o ciclo básico.",
-      descricaoES: "Ambo y materiales para el ciclo básico.",
-      corBg: "bg-[#19382B]",
-      corTexto: "text-white",
+      categoria: 'tecnologias',
+      tag: "Tecnologías",
+      nome: "Auriculares Inalámbricos AirPods Pro",
+      descricao: "Cancelación activa de ruido y audio espacial para pausas de estudio.",
+      preco: "$ 149.990 ARS",
+      link: "https://www.mercadolibre.com.ar",
+      imagem: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=500&auto=format&fit=crop&q=60"
     },
     {
       id: 2,
-      fase: "TEMPLATE 02",
-      tituloPT: "Ciclo clínico",
-      tituloES: "Ciclo clínico",
-      descricaoPT: "Semiologia, instrumentos e bolso do jaleco.",
-      descricaoES: "Semiología, instrumentos y bolsillo del ambo.",
-      corBg: "bg-[#F3DEB4]",
-      corTexto: "text-[#19382B]",
+      categoria: 'tecnologias',
+      tag: "Tecnologías",
+      nome: "Cargador iPhone 20W + Cable",
+      descricao: "Carga rápida essencial para manter el celular activo en guardias.",
+      preco: "$ 39.990 ARS",
+      link: "https://meli.la/1Bprs57",
+      imagem: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500&auto=format&fit=crop&q=60"
     },
     {
       id: 3,
-      fase: "TEMPLATE 03",
-      tituloPT: "Internato & plantão",
-      tituloES: "Práctica final y guardia",
-      descricaoPT: "Conforto e os listados para a rotina hospitalar.",
-      descricaoES: "Confort y los listados para la rutina hospitalaria.",
-      corBg: "bg-[#AECED2]",
-      corTexto: "text-[#19382B]",
-    }
-  ];
-
-  // ========================================================================
-  // 🛒 2. PRODUTOS DAS ABAS INTERATIVAS
-  // ========================================================================
-  const produtosCalouro = [
-    {
-      id: 1,
-      tagPT: "SOBREVIVÊNCIA",
-      tagES: "SUPERVIVENCIA",
-      nomePT: "Garrafa Térmica (Stanley/Lumilagro)",
-      nomeES: "Termo (Stanley/Lumilagro)",
-      descricaoPT: "Essencial para o mate e café nas madrugadas de estudo.",
-      descricaoES: "Esencial para el mate y café en las madrugadas de estudio.",
-      link: "https://meli.la/26EHLpY", 
-      imagem: "",
-      preco: "156,000 $",
-      icone: <Coffee className="w-8 h-8 text-[#E06D53]" />
-    }
-  ];
-
-  const produtosIniciantes = [
-    {
-      id: 1,
-      tagPT: "ESTUDO",
-      tagES: "ESTUDIO",
-      nomePT: "Suporte Ergonômico Notebook",
-      nomeES: "Soporte Ergonómico Notebook",
-      descricaoPT: "Salva o seu pescoço nas horas de leitura de Crecimiento y Desarrollo.",
-      descricaoES: "Salva tu cuello en las horas de lectura de Crecimiento y Desarrollo.",
-      link: "https://meli.la/2eQLC4N",
-      imagem: "",
-      preco: "10.199 $",
-      icone: <Laptop className="w-8 h-8 text-[#19382B]" />
-    },
-    {
-      id: 2,
-      tagPT: "LIVRO",
-      tagES: "LIBRO",
-      nomePT: "Atlas de Anatomia Humana",
-      nomeES: "Atlas de Anatomía Humana",
-      descricaoPT: "Obrigatório para as aulas práticas de laboratório.",
-      descricaoES: "Obligatorio para las clases prácticas de laboratorio.",
-      link: "https://meli.la/2hFFZs3",
-      imagem: "",
-      preco: "65,00 $",
-      icone: <Book className="w-8 h-8 text-[#19382B]" />
-    },
-    {
-      id: 3,
-      tagPT: "CONECTIVIDADE",
-      tagES: "CONECTIVIDAD",
-      nomePT: "Internet Satélite Starlink Mini X",
-      nomeES: "Internet Vía Satélite Starlink Mini X",
-      descricaoPT: "Internet rápida em qualquer lugar. Ideal para estudar e ver videoaulas sem interrupções.",
-      descricaoES: "Internet rápida en cualquier lugar. Ideal para estudiar y ver clases sin interrupciones.",
-      link: "https://meli.la/2o8SYCT", 
-      imagem: "",
-      preco: "219,000 $",
-      icone: <Wifi className="w-8 h-8 text-[#19382B]" />
+      categoria: 'vestuario',
+      tag: "Vestuario",
+      nome: "Ambo Médico Unisex Talle M",
+      descricao: "Tela antimanchas y antiarrugas, perfecto para prácticas y guardias.",
+      preco: "$ 54.900 ARS",
+      link: "https://www.mercadolibre.com.ar",
+      imagem: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60"
     },
     {
       id: 4,
-      tagPT: "TECNOLOGIA",
-      tagES: "TECNOLOGÍA",
-      nomePT: "Carregador Rápido para iPhone",
-      nomeES: "Cargador Rápido para iPhone",
-      descricaoPT: "Essencial para manter o telemóvel carregado durante os plantões e longas horas de estudo.",
-      descricaoES: "Esencial para mantener el teléfono cargado durante las guardias y largas horas de estudio.",
-      link: "https://meli.la/1Bprs57", 
-      imagem: "",
-      preco: "20,669 $",
-      icone: <Zap className="w-8 h-8 text-[#E06D53]" />
-    }
-  ];
-
-  const produtosAvancados = [
-    {
-      id: 1,
-      tagPT: "OBRIGATÓRIO",
-      tagES: "OBLIGATORIO",
-      nomePT: "Pijama Cirúrgico (Ambo)",
-      nomeES: "Ambo Médico",
-      descricaoPT: "Tecido anti-amasso, perfeito para os plantões.",
-      descricaoES: "Tela antimanchas y antiarrugas, perfecto para las guardias.",
-      link: "#",
-      imagem: "",
-      preco: "Ver Oferta",
-      icone: <Activity className="w-8 h-8 text-[#E06D53]" />
+      categoria: 'diversos',
+      tag: "Diversos",
+      nome: "Mochila Universitaria Resistente",
+      descricao: "Espaciosa, compartimiento para notebook y livros pesados.",
+      preco: "$ 42.990 ARS",
+      link: "https://www.mercadolibre.com.ar",
+      imagem: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60"
     },
     {
-      id: 2,
-      tagPT: "CLÍNICA",
-      tagES: "CLÍNICA",
-      nomePT: "Estetoscópio Littmann",
-      nomeES: "Estetoscopio Littmann",
-      descricaoPT: "A melhor acústica para Semiologia. Investimento para a vida.",
-      descricaoES: "La mejor acústica para Semiología. Inversión para toda la vida.",
-      link: "#",
-      imagem: "",
-      preco: "Ver Oferta",
-      icone: <Stethoscope className="w-8 h-8 text-[#E06D53]" />
+      id: 5,
+      categoria: 'libros',
+      tag: "Libros",
+      nome: "Gray's Anatomy (Edición en Español)",
+      descricao: "El clásico fundamental para el estudio profundo de anatomía humana.",
+      preco: "$ 89.990 ARS",
+      link: "https://meli.la/2hFFZs3",
+      imagem: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 6,
+      categoria: 'tecnologias',
+      tag: "Tecnologías",
+      nome: "Internet Satelital Starlink Mini",
+      descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
+      preco: "219.000 $",
+      link: "https://meli.la/2o8SYCT",
+      imagem: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 7,
+      categoria: 'diversos',
+      tag: "Diversos",
+      nome: "Termo Stanley / Lumilagro",
+      descricao: "Mantiene el agua caliente durante toda la jornada de cursada o biblioteca.",
+      preco: "156.000 $",
+      link: "https://meli.la/26EHLpY",
+      imagem: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 8,
+      categoria: 'tecnologias',
+      tag: "Tecnologías",
+      nome: "Soporte Ergonómico Notebook",
+      descricao: "Evita dolores cervicales durante las largas horas de lectura.",
+      preco: "10.199 $",
+      link: "https://meli.la/2eQLC4N",
+      imagem: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60"
     }
   ];
 
-  const obterProdutosDaAba = () => {
-    if (abaAtiva === 'calouro') return produtosCalouro;
-    if (abaAtiva === 'iniciantes') return produtosIniciantes;
-    if (abaAtiva === 'avancados') return produtosAvancados;
-    return [];
-  };
+  const produtosFiltrados = filtroCategoria === 'todos' 
+    ? produtos 
+    : produtos.filter(p => p.categoria === filtroCategoria);
 
-  const produtosAtuais = obterProdutosDaAba();
-
-  // ========================================================================
-  // 🎨 DESIGN DA PÁGINA
-  // ========================================================================
   return (
     <div className="min-h-screen bg-[#F3EFE7] text-[#19382B] font-sans selection:bg-[#E06D53] selection:text-white pb-24">
       
-      {/* SECÇÃO DO HERO COM VÍDEO DE FUNDO EM SEGUNDO PLANO */}
-      <div className="relative overflow-hidden bg-[#19382B] text-white pb-20 pt-6">
-        {/* VÍDEO DE FUNDO EM LOOP FORÇADO */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none z-0"
-        >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-        </video>
-
-        {/* CAMADA DE SOBREPOSIÇÃO TRANSLÚCIDA PARA O TEXTO FICAR LEGÍVEL */}
-        <div className="absolute inset-0 bg-[#F3EFE7] opacity-80 z-1"></div>
-
-        {/* CONTEÚDO DO TOPO */}
-        <div className="relative z-10 text-[#19382B]">
-          {/* NAVBAR */}
-          <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto mb-8">
-            <div className="text-2xl font-black tracking-tighter">med.indica</div>
-            
-            <div className="hidden md:flex gap-8 text-sm font-semibold items-center">
-              <a href="#vitrines" className="hover:text-[#E06D53] transition">{t.menuVitrines}</a>
-              <a href="#loja" className="hover:text-[#E06D53] transition">{t.menuProdutos}</a>
-              
-              <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] ml-4">
-                <Globe className="w-4 h-4 text-[#19382B] ml-2" />
-                <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
-                <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
-              </div>
-            </div>
-
-            <a href="#loja" className="bg-[#19382B] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition hidden md:block">
-              {t.btnVerOfertas}
-            </a>
-          </nav>
-
-          {/* MENU MOBILE IDIOMA */}
-          <div className="flex justify-center md:hidden mb-8">
-             <div className="flex items-center gap-1 bg-white rounded-full p-1 border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B]">
-                <Globe className="w-4 h-4 text-[#19382B] ml-2" />
-                <button onClick={() => setIdioma('pt')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'pt' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>PT</button>
-                <button onClick={() => setIdioma('es')} className={`px-3 py-1 text-xs font-black rounded-full transition ${idioma === 'es' ? 'bg-[#19382B] text-white' : 'text-[#19382B] hover:bg-gray-200'}`}>ES</button>
-              </div>
-          </div>
-
-          {/* HERO SECTION */}
-          <header className="px-8 pb-4 max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div className="inline-block bg-[#E8D359] text-xs font-bold px-3 py-1 rounded-full border-2 border-[#19382B] mb-6 shadow-[2px_2px_0px_#19382B]">
-              {t.tagHero}
-            </div>
-            <h1 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tight mb-4 uppercase">
-              {t.tituloHero1} <br/><span className="text-[#E06D53]">{t.tituloHero2}</span>
-            </h1>
-            <p className="text-lg font-medium max-w-xl opacity-80">
-              {t.descHero}
-            </p>
-          </header>
-        </div>
-      </div>
-
-      {/* SECÇÃO 3 VITRINES */}
-      <section id="vitrines" className="px-8 py-16 max-w-7xl mx-auto border-t-2 border-[#19382B]">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+      {/* HEADER / NAVBAR SUPERIOR */}
+      <nav className="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto border-b border-[#19382B]/10">
+        <div className="flex items-center gap-2">
+          <div className="bg-[#19382B] text-white p-1.5 rounded-lg font-black text-lg">+</div>
           <div>
-            <p className="text-[#E06D53] text-xs font-bold tracking-widest uppercase mb-2">{t.tagVitrine}</p>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase">{t.tituloVitrine}<br/>{t.subVitrine}</h2>
+            <span className="text-xl font-black tracking-tighter">med.indica</span>
+            <span className="block text-[9px] font-bold tracking-wider opacity-70 uppercase">EL KIT EXTRAOFICIAL DE LA FACU</span>
           </div>
-          <p className="max-w-xs font-medium text-sm text-right hidden md:block">
-            {t.descVitrine}
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {vitrines.map((vitrine) => (
-            <div key={vitrine.id} className="group cursor-pointer">
-              <div className={`${vitrine.corBg} ${vitrine.corTexto} p-8 rounded-3xl h-64 border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] flex flex-col justify-between mb-4 group-hover:-translate-y-2 transition-transform`}>
-                <div className="flex justify-between items-center text-xs font-bold opacity-80 uppercase">
-                  <span>med.indica</span>
+        <div className="hidden md:flex gap-8 text-sm font-semibold items-center">
+          <a href="#" className="hover:text-[#E06D53] transition">Inicio</a>
+          <a href="#categorias" className="hover:text-[#E06D53] transition">Tecnologías</a>
+          <a href="#categorias" className="hover:text-[#E06D53] transition">Vestuario</a>
+          <a href="#categorias" className="hover:text-[#E06D53] transition">Diversos</a>
+          <a href="#categorias" className="hover:text-[#E06D53] transition">Libros</a>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center bg-white border border-[#19382B]/20 rounded-full px-4 py-1.5 text-xs">
+            <Search className="w-3.5 h-3.5 opacity-50 mr-2" />
+            <input type="text" placeholder="Buscar productos..." className="bg-transparent outline-none w-32" />
+          </div>
+          <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-[#E06D53] transition" />
+          <User className="w-5 h-5 cursor-pointer hover:text-[#E06D53] transition" />
+        </div>
+      </nav>
+
+      {/* HERO SECTION */}
+      <header className="px-8 py-12 max-w-7xl mx-auto">
+        <div className="bg-[#19382B] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-[8px_8px_0px_#E8D359] border-4 border-[#19382B]">
+          
+          <div className="absolute right-0 top-0 w-1/2 h-full opacity-30 md:opacity-50 hidden md:block">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Medicina" className="w-full h-full object-cover rounded-r-3xl" />
+          </div>
+
+          <div className="relative z-10 max-w-xl">
+            <div className="inline-block bg-[#E8D359] text-[#19382B] text-xs font-black px-3 py-1 rounded-full mb-6">
+              01 / CURSADA MODE: ACTIVADO
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight mb-4 uppercase">
+              ESTUDIÁ CON OTRA <span className="text-[#E06D53]">ENERGÍA.</span>
+            </h1>
+            <p className="text-base md:text-lg font-medium opacity-90 mb-8">
+              Tecnología, libros, vestuario y hallazgos para hacer más fácil la vida universitaria.
+            </p>
+
+            {/* BOTÕES DE ATALHO RÁPIDO */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <a href="#productos" onClick={() => setFiltroCategoria('tecnologias')} className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+                TECNOLOGÍAS <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <a href="#productos" onClick={() => setFiltroCategoria('vestuario')} className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+                VESTUARIO <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <a href="#productos" onClick={() => setFiltroCategoria('diversos')} className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+                DIVERSOS <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <a href="#productos" onClick={() => setFiltroCategoria('libros')} className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+                LIBROS <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* EXPLORÁ POR CATEGORÍA */}
+      <section id="categorias" className="px-8 py-12 max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase">Explorá por categoría</h2>
+            <p className="text-sm font-medium opacity-80">Todo lo que necesitás, en un solo lugar.</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Card 1 */}
+          <div onClick={() => setFiltroCategoria('tecnologias')} className="bg-[#19382B] text-white p-6 rounded-3xl border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] cursor-pointer hover:-translate-y-1 transition group">
+            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60" alt="Tecnología" className="w-full h-full object-cover group-hover:scale-105 transition" />
+            </div>
+            <h3 className="text-xl font-black uppercase mb-1">Tecnologías</h3>
+            <p className="text-xs opacity-80 mb-4">Auriculares, cargadores, soportes y más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#E06D53] p-1 rounded-full text-white" /></div>
+          </div>
+
+          {/* Card 2 */}
+          <div onClick={() => setFiltroCategoria('vestuario')} className="bg-[#E06D53] text-white p-6 rounded-3xl border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] cursor-pointer hover:-translate-y-1 transition group">
+            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60" alt="Vestuario" className="w-full h-full object-cover group-hover:scale-105 transition" />
+            </div>
+            <h3 className="text-xl font-black uppercase mb-1">Vestuario</h3>
+            <p className="text-xs opacity-80 mb-4">Ambos, calzado, ropa cómoda y accesorios.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+          </div>
+
+          {/* Card 3 */}
+          <div onClick={() => setFiltroCategoria('diversos')} className="bg-[#AECED2] text-[#19382B] p-6 rounded-3xl border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] cursor-pointer hover:-translate-y-1 transition group">
+            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60" alt="Diversos" className="w-full h-full object-cover group-hover:scale-105 transition" />
+            </div>
+            <h3 className="text-xl font-black uppercase mb-1">Diversos</h3>
+            <p className="text-xs opacity-80 mb-4">Mochilas, termos, organizadores y más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+          </div>
+
+          {/* Card 4 */}
+          <div onClick={() => setFiltroCategoria('libros')} className="bg-[#F3DEB4] text-[#19382B] p-6 rounded-3xl border-4 border-[#19382B] shadow-[6px_6px_0px_#19382B] cursor-pointer hover:-translate-y-1 transition group">
+            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60" alt="Libros" className="w-full h-full object-cover group-hover:scale-105 transition" />
+            </div>
+            <h3 className="text-xl font-black uppercase mb-1">Libros</h3>
+            <p className="text-xs opacity-80 mb-4">Anatomía, fisiología, patología y mucho más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PRODUCTOS DESTACADOS & FILTROS */}
+      <section id="productos" className="px-8 py-12 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase">Productos destacados</h2>
+            <p className="text-sm font-medium opacity-80">Los más elegidos por estudiantes de medicina.</p>
+          </div>
+
+          {/* FILTROS TIPO PILULA */}
+          <div className="flex flex-wrap gap-2 bg-[#19382B] p-2 rounded-2xl border-2 border-[#19382B]">
+            <button onClick={() => setFiltroCategoria('todos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'todos' ? 'bg-[#E06D53] text-white' : 'text-white hover:bg-white/10'}`}>Todos</button>
+            <button onClick={() => setFiltroCategoria('tecnologias')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'tecnologias' ? 'bg-[#E06D53] text-white' : 'text-white hover:bg-white/10'}`}>Tecnologías</button>
+            <button onClick={() => setFiltroCategoria('vestuario')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'vestuario' ? 'bg-[#E06D53] text-white' : 'text-white hover:bg-white/10'}`}>Vestuario</button>
+            <button onClick={() => setFiltroCategoria('diversos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'diversos' ? 'bg-[#E06D53] text-white' : 'text-white hover:bg-white/10'}`}>Diversos</button>
+            <button onClick={() => setFiltroCategoria('libros')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'libros' ? 'bg-[#E06D53] text-white' : 'text-white hover:bg-white/10'}`}>Libros</button>
+          </div>
+        </div>
+
+        {/* GRADE DE PRODUTOS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {produtosFiltrados.map((produto) => (
+            <div key={produto.id} className="bg-white border-4 border-[#19382B] rounded-3xl p-5 flex flex-col justify-between shadow-[6px_6px_0px_#19382B] hover:-translate-y-1 transition group">
+              <div>
+                <div className="relative h-48 bg-[#F3EFE7] rounded-2xl border-2 border-[#19382B] mb-4 overflow-hidden flex items-center justify-center">
+                  <img src={produto.imagem} alt={produto.nome} className="w-full h-full object-cover group-hover:scale-105 transition" />
+                  <button className="absolute top-3 right-3 bg-white p-2 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:bg-gray-100 transition">
+                    <Heart className="w-4 h-4 text-[#19382B]" />
+                  </button>
                 </div>
-                <h3 className="text-4xl font-black leading-none uppercase">
-                  {idioma === 'pt' ? vitrine.tituloPT : vitrine.tituloES}
-                </h3>
+
+                <p className="text-[#E06D53] text-xs font-black uppercase mb-1">{produto.tag}</p>
+                <h3 className="text-lg font-black text-[#19382B] mb-2 leading-tight">{produto.nome}</h3>
+                <p className="text-xs font-medium opacity-80 mb-4">{produto.descricao}</p>
               </div>
-              <div className="flex justify-between items-start px-2">
-                <div>
-                  <p className="text-[#E06D53] text-xs font-bold mb-1">{vitrine.fase}</p>
-                  <h4 className="font-bold text-lg">{idioma === 'pt' ? vitrine.tituloPT : vitrine.tituloES}</h4>
-                  <p className="text-sm font-medium opacity-80">{idioma === 'pt' ? vitrine.descricaoPT : vitrine.descricaoES}</p>
-                </div>
+
+              <div>
+                <div className="text-xl font-black text-[#19382B] mb-4">{produto.preco}</div>
+                <a 
+                  href={produto.link} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="w-full bg-[#19382B] hover:bg-[#E06D53] text-white text-xs font-bold py-3 rounded-xl border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] transition flex items-center justify-center gap-2"
+                >
+                  Ver en Mercado Libre <ArrowUpRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* LOJA E MENU DE ABAS INTERATIVAS */}
-      <section id="loja" className="bg-[#19382B] py-16 mt-8 border-t-4 border-[#19382B]">
-        
-        <div className="px-8 max-w-3xl mx-auto mb-12">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center bg-white p-2 rounded-3xl border-4 border-[#19382B] shadow-[8px_8px_0px_#19382B]">
-            <button 
-              onClick={() => setAbaAtiva('calouro')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'calouro' ? 'bg-[#E06D53] text-white border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba1}
-            </button>
-            <button 
-              onClick={() => setAbaAtiva('iniciantes')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'iniciantes' ? 'bg-[#19382B] text-white border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba2}
-            </button>
-            <button 
-              onClick={() => setAbaAtiva('avancados')}
-              className={`flex-1 py-3 px-6 rounded-2xl font-bold text-sm transition-all border-2 ${abaAtiva === 'avancados' ? 'bg-[#E8D359] text-[#19382B] border-[#19382B]' : 'bg-transparent border-transparent text-[#19382B] hover:bg-gray-100'}`}
-            >
-              {t.aba3}
-            </button>
+      {/* FOOTER / BANNER DE CONFIANÇA */}
+      <section className="px-8 max-w-7xl mx-auto mt-16">
+        <div className="bg-[#19382B] text-white rounded-3xl p-8 border-4 border-[#19382B] flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <h3 className="text-2xl font-black uppercase">Tu futuro también se prepara acá</h3>
+            <p className="text-xs opacity-80">Envíos seguros e integrados con Mercado Libre.</p>
           </div>
-        </div>
-
-        {/* LISTA DE PRODUTOS */}
-        <div className="px-8 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            {produtosAtuais.map((produto) => (
-              <div key={produto.id} className="border-4 border-[#19382B] bg-white rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 hover:-translate-y-1 transition-transform shadow-[6px_6px_0px_#19382B]">
-                
-                <div className="w-24 h-24 bg-[#F3EFE7] rounded-2xl border-2 border-[#19382B] overflow-hidden flex items-center justify-center shrink-0">
-                  {produto.imagem ? (
-                    <img src={produto.imagem} alt={produto.nomePT} className="w-full h-full object-cover" />
-                  ) : (
-                    produto.icone
-                  )}
-                </div>
-                
-                <div className="flex-1 text-center sm:text-left">
-                  <p className="text-[#E06D53] text-xs font-black tracking-widest mb-1 uppercase">
-                    {idioma === 'pt' ? produto.tagPT : produto.tagES}
-                  </p>
-                  <h3 className="text-2xl font-black mb-2 text-[#19382B]">
-                    {idioma === 'pt' ? produto.nomePT : produto.nomeES}
-                  </h3>
-                  <p className="text-sm font-medium opacity-80 text-[#19382B]">
-                    {idioma === 'pt' ? produto.descricaoPT : produto.descricaoES}
-                  </p>
-                </div>
-
-                {/* BOTÃO COM PREÇO / VALOR CONFIGURADO */}
-                <div className="w-full sm:w-auto">
-                  <a href={produto.link} target="_blank" rel="noreferrer" className="bg-[#E06D53] text-white text-sm font-bold px-8 py-3 rounded-full border-2 border-[#19382B] shadow-[2px_2px_0px_#19382B] hover:translate-y-1 hover:shadow-none transition flex items-center justify-center gap-2">
-                    {produto.preco} <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-
-              </div>
-            ))}
+          <div className="flex flex-wrap justify-center gap-6 text-xs font-bold opacity-90">
+            <span>📦 Envíos a toda Argentina</span>
+            <span>🔒 Compra segura en Mercado Libre</span>
+            <span>💳 Pagos en cuotas</span>
           </div>
         </div>
       </section>
+
+      {/* RODAPÉ */}
+      <footer className="mt-16 border-t border-[#19382B]/20 py-8 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold">
+        <div className="flex items-center gap-2">
+          <div className="bg-[#19382B] text-white p-1 rounded font-black">+</div>
+          <span>med.indica — El kit extraoficial de la facu</span>
+        </div>
+        <div className="opacity-70">
+          Estudiantes de hoy, médicos del mañana ♡
+        </div>
+      </footer>
 
     </div>
   );
