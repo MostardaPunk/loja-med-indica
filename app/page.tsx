@@ -7,7 +7,7 @@ export default function MedIndicaPage() {
   const [filtroCategoria, setFiltroCategoria] = useState('todos');
 
   // ========================================================================
-  // 🛒 PRODUTOS DO CATÁLOGO COM A NOVA IMAGEM DO STARLINK
+  // 🛒 PRODUTOS DO CATÁLOGO COM IMAGEM ESTÁVEL
   // ========================================================================
   const produtos = [
     {
@@ -18,7 +18,7 @@ export default function MedIndicaPage() {
       descricao: "Conectividad de alta velocidad en cualquier lugar de estudio.",
       preco: "$ 219.000",
       link: "https://meli.la/2o8SYCT",
-      imagem: "https://replicate.delivery/xpbkg/6rUeR8fN2RrgCJoP4Yv193cZ90C90aC90aC90aC90aC90aC9/output.png"
+      imagem: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500&auto=format&fit=crop&q=60"
     },
     {
       id: 2,
