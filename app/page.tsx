@@ -205,21 +205,22 @@ export default function MedIndicaPage() {
       
       {/* SECÇÃO DO HERO COM VÍDEO DE FUNDO EM SEGUNDO PLANO */}
       <div className="relative overflow-hidden bg-[#19382B] text-white pb-20 pt-6">
-        {/* VÍDEO DE FUNDO EM LOOP */}
+        {/* VÍDEO DE FUNDO EM LOOP FORÇADO */}
         <video 
           autoPlay 
           loop 
           muted 
           playsInline 
-          className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none z-0"
         >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-doctor-writing-a-prescription-42861-large.mp4" type="video/mp4" />
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
         </video>
 
-        {/* CAMADA DE SOBREPOSIÇÃO PARA GARANTIR LEGIBILIDADE */}
-        <div className="absolute inset-0 bg-[#F3EFE7] opacity-85"></div>
+        {/* CAMADA DE SOBREPOSIÇÃO TRANSLÚCIDA PARA O TEXTO FICAR LEGÍVEL */}
+        <div className="absolute inset-0 bg-[#F3EFE7] opacity-80 z-1"></div>
 
-        {/* CONTEÚDO DO TOPO (NAVBAR + HERO) */}
+        {/* CONTEÚDO DO TOPO */}
         <div className="relative z-10 text-[#19382B]">
           {/* NAVBAR */}
           <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto mb-8">
