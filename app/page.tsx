@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Search, ShoppingBag, User, Heart, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Search, User, ShoppingBag, Heart, ArrowRight, ArrowUpRight, Instagram, MessageCircle, Play } from 'lucide-react';
 
 export default function MedIndicaPage() {
   const [filtroCategoria, setFiltroCategoria] = useState('todos');
 
   // ========================================================================
-  // 🛒 CATÁLOGO DE PRODUTOS ALinhado COM O DESIGN
+  // 🛒 PRODUTOS DO CATÁLOGO ATUALIZADOS
   // ========================================================================
   const produtos = [
     {
@@ -24,9 +24,9 @@ export default function MedIndicaPage() {
       id: 2,
       categoria: 'tecnologias',
       tag: "Tecnologías",
-      nome: "Cargador iPhone 20W + Cable",
+      nome: "Cargador iphone Apple 20W USB-C a Lightning Carga Rápida",
       descricao: "Carga rápida esencial para mantener el celular activo en guardias.",
-      preco: "$ 39.990 ARS",
+      preco: "$ 20.669",
       link: "https://meli.la/1Bprs57",
       imagem: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500&auto=format&fit=crop&q=60"
     },
@@ -97,67 +97,70 @@ export default function MedIndicaPage() {
     : produtos.filter(p => p.categoria === filtroCategoria);
 
   return (
-    <div className="min-h-screen bg-[#19382B] text-white font-sans selection:bg-[#E06D53] selection:text-white pb-24">
+    <div className="min-h-screen bg-[#0a1e14] text-white font-sans selection:bg-[#c9e832] selection:text-[#0a1e14] pb-20">
       
-      {/* HEADER / NAVBAR SUPERIOR */}
+      {/* 1. NAVBAR SUPERIOR */}
       <nav className="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto border-b border-white/10">
         <div className="flex items-center gap-2">
-          <div className="bg-[#E8D359] text-[#19382B] p-1.5 rounded-lg font-black text-lg">+</div>
+          <div className="bg-[#c9e832] text-[#0a1e14] w-8 h-8 rounded-lg flex items-center justify-center font-black text-xl shadow-md">+</div>
           <div>
-            <span className="text-xl font-black tracking-tighter">med.indica.</span>
-            <span className="block text-[9px] font-bold tracking-wider opacity-70 uppercase">EL KIT EXTRAOFICIAL DE LA FACU</span>
+            <span className="text-xl font-black tracking-tight">medíndica.</span>
+            <span className="block text-[8px] font-bold tracking-widest opacity-70 uppercase">EL KIT EXTRAOFICIAL DE LA FACU</span>
           </div>
         </div>
 
-        <div className="hidden md:flex gap-8 text-sm font-semibold items-center">
-          <a href="#" className="hover:text-[#E8D359] transition">Inicio</a>
-          <a href="#categorias" onClick={() => setFiltroCategoria('tecnologias')} className="hover:text-[#E8D359] transition">Tecnologías</a>
-          <a href="#categorias" onClick={() => setFiltroCategoria('vestuario')} className="hover:text-[#E8D359] transition">Vestuario</a>
-          <a href="#categorias" onClick={() => setFiltroCategoria('diversos')} className="hover:text-[#E8D359] transition">Diversos</a>
-          <a href="#categorias" onClick={() => setFiltroCategoria('libros')} className="hover:text-[#E8D359] transition">Libros</a>
+        <div className="hidden md:flex gap-8 text-sm font-medium items-center text-gray-200">
+          <a href="#" className="text-white font-semibold underline underline-offset-8 decoration-[#c9e832]">Inicio</a>
+          <a href="#categorias" onClick={() => setFiltroCategoria('tecnologias')} className="hover:text-white transition">Tecnologías</a>
+          <a href="#categorias" onClick={() => setFiltroCategoria('vestuario')} className="hover:text-white transition">Vestuario</a>
+          <a href="#categorias" onClick={() => setFiltroCategoria('diversos')} className="hover:text-white transition">Diversos</a>
+          <a href="#categorias" onClick={() => setFiltroCategoria('libros')} className="hover:text-white transition">Libros</a>
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs text-white">
-            <Search className="w-3.5 h-3.5 opacity-50 mr-2" />
-            <input type="text" placeholder="Buscar productos..." className="bg-transparent outline-none w-32 placeholder-white/50 text-white" />
+          <div className="hidden lg:flex items-center bg-white/5 border border-white/20 rounded-full px-4 py-2 text-xs text-white">
+            <Search className="w-3.5 h-3.5 opacity-60 mr-2" />
+            <input type="text" placeholder="Buscar productos..." className="bg-transparent outline-none w-36 placeholder-white/40 text-white" />
           </div>
-          <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-[#E8D359] transition" />
-          <User className="w-5 h-5 cursor-pointer hover:text-[#E8D359] transition" />
+          <User className="w-5 h-5 cursor-pointer hover:text-[#c9e832] transition" />
+          <div className="relative">
+            <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-[#c9e832] transition" />
+            <span className="absolute -top-2 -right-2 bg-[#c9e832] text-[#0a1e14] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </div>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <header className="px-8 py-10 max-w-7xl mx-auto">
-        <div className="bg-[#142d22] border-2 border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl">
+      {/* 2. HERO BANNER PRINCIPAL */}
+      <header className="px-8 py-8 max-w-7xl mx-auto">
+        <div className="bg-[#0f2d1f] border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
           
           <div className="absolute right-0 top-0 w-1/2 h-full opacity-40 hidden md:block">
             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Medicina" className="w-full h-full object-cover rounded-r-3xl" />
           </div>
 
           <div className="relative z-10 max-w-xl">
-            <div className="inline-block bg-[#E8D359] text-[#19382B] text-xs font-black px-3 py-1 rounded-full mb-6">
+            <div className="inline-block bg-[#c9e832] text-[#0a1e14] text-xs font-black px-3.5 py-1 rounded-full mb-6 tracking-wide shadow-sm">
               01 / CURSADA MODE: ACTIVADO
             </div>
             <h1 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight mb-4 uppercase">
-              ESTUDIÁ CON OTRA <span className="text-[#E06D53]">ENERGÍA.</span>
+              ESTUDIÁ CON OTRA <span className="text-[#e26d48]">ENERGÍA.</span>
             </h1>
-            <p className="text-base md:text-lg font-medium opacity-90 mb-8 text-gray-200">
+            <p className="text-sm md:text-base font-medium opacity-90 mb-8 text-gray-200">
               Tecnología, libros, vestuario y hallazgos para hacer más fácil la vida universitaria.
             </p>
 
-            {/* BOTÕES DE ATALHO RÁPIDO */}
+            {/* BOTÕES DE CATEGORIAS NO HERO */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <a href="#productos" onClick={() => setFiltroCategoria('tecnologias')} className="bg-[#E06D53] hover:bg-[#d05c44] text-white rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+              <a href="#productos" onClick={() => setFiltroCategoria('tecnologias')} className="bg-[#c9e832] hover:bg-[#b8d625] text-[#0a1e14] rounded-2xl p-3 text-xs font-extrabold flex items-center justify-between transition shadow-md">
                 TECNOLOGÍAS <ArrowRight className="w-3.5 h-3.5" />
               </a>
-              <a href="#productos" onClick={() => setFiltroCategoria('vestuario')} className="bg-[#E8D359] hover:bg-[#d5bf4e] text-[#19382B] rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+              <a href="#productos" onClick={() => setFiltroCategoria('vestuario')} className="bg-[#e26d48] hover:bg-[#cf5e3b] text-white rounded-2xl p-3 text-xs font-extrabold flex items-center justify-between transition shadow-md">
                 VESTUARIO <ArrowRight className="w-3.5 h-3.5" />
               </a>
-              <a href="#productos" onClick={() => setFiltroCategoria('diversos')} className="bg-[#AECED2] hover:bg-[#96b8bd] text-[#19382B] rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+              <a href="#productos" onClick={() => setFiltroCategoria('diversos')} className="bg-[#78b3af] hover:bg-[#689f9b] text-[#0a1e14] rounded-2xl p-3 text-xs font-extrabold flex items-center justify-between transition shadow-md">
                 DIVERSOS <ArrowRight className="w-3.5 h-3.5" />
               </a>
-              <a href="#productos" onClick={() => setFiltroCategoria('libros')} className="bg-[#F3DEB4] hover:bg-[#e0cc9f] text-[#19382B] rounded-2xl p-3 text-xs font-bold flex items-center justify-between transition">
+              <a href="#productos" onClick={() => setFiltroCategoria('libros')} className="bg-[#e6d0a7] hover:bg-[#d6bf96] text-[#0a1e14] rounded-2xl p-3 text-xs font-extrabold flex items-center justify-between transition shadow-md">
                 LIBROS <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -165,104 +168,106 @@ export default function MedIndicaPage() {
         </div>
       </header>
 
-      {/* EXPLORÁ POR CATEGORÍA */}
-      <section id="categorias" className="px-8 py-10 max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-8">
+      {/* 3. EXPLORÁ POR CATEGORÍA */}
+      <section id="categorias" className="px-8 py-8 max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase">Explorá por categoría</h2>
-            <p className="text-sm font-medium opacity-80">Todo lo que necesitás, en un solo lugar.</p>
+            <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase">Explorá por categoría</h2>
+            <p className="text-xs font-medium text-gray-300">Todo lo que necesitás, en un solo lugar.</p>
           </div>
+          <span className="text-xs font-bold text-[#c9e832] cursor-pointer hover:underline">Ver todas →</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
-          {/* Card 1 */}
-          <div onClick={() => setFiltroCategoria('tecnologias')} className="bg-[#142d22] text-white p-6 rounded-3xl border-2 border-white/10 cursor-pointer hover:-translate-y-1 transition group">
-            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+          <div onClick={() => setFiltroCategoria('tecnologias')} className="bg-[#0f2d1f] text-white p-5 rounded-3xl border border-white/10 cursor-pointer hover:-translate-y-1 transition group relative overflow-hidden shadow-lg">
+            <span className="absolute top-4 right-4 text-xs font-bold opacity-30">01</span>
+            <div className="h-36 rounded-2xl mb-4 overflow-hidden bg-black/20">
               <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60" alt="Tecnología" className="w-full h-full object-cover group-hover:scale-105 transition" />
             </div>
-            <h3 className="text-xl font-black uppercase mb-1">Tecnologías</h3>
-            <p className="text-xs opacity-80 mb-4">Auriculares, cargadores, soportes y más.</p>
-            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#E06D53] p-1 rounded-full text-white" /></div>
+            <h3 className="text-lg font-black uppercase mb-1">Tecnologías</h3>
+            <p className="text-[11px] text-gray-300 opacity-90 mb-4">Celulares, cargadores, auriculares, soportes y más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#c9e832] p-1 rounded-full text-[#0a1e14]" /></div>
           </div>
 
-          {/* Card 2 */}
-          <div onClick={() => setFiltroCategoria('vestuario')} className="bg-[#E06D53] text-white p-6 rounded-3xl border-2 border-white/10 cursor-pointer hover:-translate-y-1 transition group">
-            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+          <div onClick={() => setFiltroCategoria('vestuario')} className="bg-[#e26d48] text-white p-5 rounded-3xl border border-white/10 cursor-pointer hover:-translate-y-1 transition group relative overflow-hidden shadow-lg">
+            <span className="absolute top-4 right-4 text-xs font-bold opacity-30">02</span>
+            <div className="h-36 rounded-2xl mb-4 overflow-hidden bg-black/20">
               <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60" alt="Vestuario" className="w-full h-full object-cover group-hover:scale-105 transition" />
             </div>
-            <h3 className="text-xl font-black uppercase mb-1">Vestuario</h3>
-            <p className="text-xs opacity-80 mb-4">Ambos, calzado, ropa cómoda y accesorios.</p>
-            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+            <h3 className="text-lg font-black uppercase mb-1">Vestuario</h3>
+            <p className="text-[11px] text-white/90 opacity-90 mb-4">Ambo, calzado, ropa cómoda y accesorios.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#0a1e14] p-1 rounded-full text-white" /></div>
           </div>
 
-          {/* Card 3 */}
-          <div onClick={() => setFiltroCategoria('diversos')} className="bg-[#AECED2] text-[#19382B] p-6 rounded-3xl border-2 border-white/10 cursor-pointer hover:-translate-y-1 transition group">
-            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+          <div onClick={() => setFiltroCategoria('diversos')} className="bg-[#78b3af] text-[#0a1e14] p-5 rounded-3xl border border-white/10 cursor-pointer hover:-translate-y-1 transition group relative overflow-hidden shadow-lg">
+            <span className="absolute top-4 right-4 text-xs font-bold opacity-30">03</span>
+            <div className="h-36 rounded-2xl mb-4 overflow-hidden bg-black/10">
               <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60" alt="Diversos" className="w-full h-full object-cover group-hover:scale-105 transition" />
             </div>
-            <h3 className="text-xl font-black uppercase mb-1">Diversos</h3>
-            <p className="text-xs opacity-80 mb-4">Mochilas, termos, organizadores y más.</p>
-            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+            <h3 className="text-lg font-black uppercase mb-1">Diversos</h3>
+            <p className="text-[11px] text-[#0a1e14]/90 opacity-90 mb-4">Mochilas, termos, organizadores, libretas y más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#0a1e14] p-1 rounded-full text-white" /></div>
           </div>
 
-          {/* Card 4 */}
-          <div onClick={() => setFiltroCategoria('libros')} className="bg-[#F3DEB4] text-[#19382B] p-6 rounded-3xl border-2 border-white/10 cursor-pointer hover:-translate-y-1 transition group">
-            <div className="h-40 rounded-2xl mb-4 overflow-hidden bg-white/10">
+          <div onClick={() => setFiltroCategoria('libros')} className="bg-[#e6d0a7] text-[#0a1e14] p-5 rounded-3xl border border-white/10 cursor-pointer hover:-translate-y-1 transition group relative overflow-hidden shadow-lg">
+            <span className="absolute top-4 right-4 text-xs font-bold opacity-30">04</span>
+            <div className="h-36 rounded-2xl mb-4 overflow-hidden bg-black/10">
               <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60" alt="Libros" className="w-full h-full object-cover group-hover:scale-105 transition" />
             </div>
-            <h3 className="text-xl font-black uppercase mb-1">Libros</h3>
-            <p className="text-xs opacity-80 mb-4">Anatomía, fisiología, patología y mucho más.</p>
-            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#19382B] p-1 rounded-full text-white" /></div>
+            <h3 className="text-lg font-black uppercase mb-1">Libros</h3>
+            <p className="text-[11px] text-[#0a1e14]/90 opacity-90 mb-4">Anatomía, fisiología, patología y mucho más.</p>
+            <div className="flex justify-end"><ArrowRight className="w-5 h-5 bg-[#0a1e14] p-1 rounded-full text-white" /></div>
           </div>
 
         </div>
       </section>
 
-      {/* PRODUCTOS DESTACADOS & FILTROS */}
-      <section id="productos" className="px-8 py-10 max-w-7xl mx-auto">
+      {/* 4. PRODUCTOS DESTACADOS & FILTROS */}
+      <section id="productos" className="px-8 py-8 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase">Productos destacados</h2>
-            <p className="text-sm font-medium opacity-80">Los más elegidos por estudiantes de medicina.</p>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xl">🔥</span>
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase">Productos destacados</h2>
+            </div>
+            <p className="text-xs font-medium text-gray-300">Los más elegidos por estudiantes de medicina.</p>
           </div>
 
-          {/* FILTROS TIPO PILULA */}
-          <div className="flex flex-wrap gap-2 bg-[#142d22] p-2 rounded-2xl border border-white/10">
-            <button onClick={() => setFiltroCategoria('todos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'todos' ? 'bg-[#E8D359] text-[#19382B]' : 'text-white hover:bg-white/10'}`}>Todos</button>
-            <button onClick={() => setFiltroCategoria('tecnologias')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'tecnologias' ? 'bg-[#E8D359] text-[#19382B]' : 'text-white hover:bg-white/10'}`}>Tecnologías</button>
-            <button onClick={() => setFiltroCategoria('vestuario')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'vestuario' ? 'bg-[#E8D359] text-[#19382B]' : 'text-white hover:bg-white/10'}`}>Vestuario</button>
-            <button onClick={() => setFiltroCategoria('diversos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'diversos' ? 'bg-[#E8D359] text-[#19382B]' : 'text-white hover:bg-white/10'}`}>Diversos</button>
-            <button onClick={() => setFiltroCategoria('libros')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'libros' ? 'bg-[#E8D359] text-[#19382B]' : 'text-white hover:bg-white/10'}`}>Libros</button>
+          <div className="flex flex-wrap gap-1 bg-[#0f2d1f] p-1.5 rounded-2xl border border-white/10">
+            <button onClick={() => setFiltroCategoria('todos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'todos' ? 'bg-[#c9e832] text-[#0a1e14]' : 'text-gray-300 hover:text-white'}`}>Todos</button>
+            <button onClick={() => setFiltroCategoria('tecnologias')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'tecnologias' ? 'bg-[#c9e832] text-[#0a1e14]' : 'text-gray-300 hover:text-white'}`}>Tecnologías</button>
+            <button onClick={() => setFiltroCategoria('vestuario')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'vestuario' ? 'bg-[#c9e832] text-[#0a1e14]' : 'text-gray-300 hover:text-white'}`}>Vestuario</button>
+            <button onClick={() => setFiltroCategoria('diversos')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'diversos' ? 'bg-[#c9e832] text-[#0a1e14]' : 'text-gray-300 hover:text-white'}`}>Diversos</button>
+            <button onClick={() => setFiltroCategoria('libros')} className={`px-4 py-1.5 rounded-xl text-xs font-bold transition ${filtroCategoria === 'libros' ? 'bg-[#c9e832] text-[#0a1e14]' : 'text-gray-300 hover:text-white'}`}>Libros</button>
           </div>
         </div>
 
-        {/* GRADE DE PRODUTOS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {produtosFiltrados.map((produto) => (
-            <div key={produto.id} className="bg-[#142d22] border-2 border-white/10 rounded-3xl p-5 flex flex-col justify-between shadow-lg hover:-translate-y-1 transition group">
+            <div key={produto.id} className="bg-[#0f2d1f] border border-white/10 rounded-3xl p-4 flex flex-col justify-between shadow-lg hover:-translate-y-1 transition group">
               <div>
-                <div className="relative h-48 bg-white/5 rounded-2xl border border-white/10 mb-4 overflow-hidden flex items-center justify-center">
+                <div className="relative h-44 bg-black/20 rounded-2xl border border-white/5 mb-3 overflow-hidden flex items-center justify-center">
                   <img src={produto.imagem} alt={produto.nome} className="w-full h-full object-cover group-hover:scale-105 transition" />
-                  <button className="absolute top-3 right-3 bg-[#19382B] p-2 rounded-full border border-white/20 hover:bg-white/20 transition">
-                    <Heart className="w-4 h-4 text-white" />
+                  <button className="absolute top-2.5 right-2.5 bg-[#0a1e14]/80 p-1.5 rounded-full border border-white/10 hover:bg-[#0a1e14] transition">
+                    <Heart className="w-3.5 h-3.5 text-white" />
                   </button>
                 </div>
 
-                <p className="text-[#E8D359] text-xs font-black uppercase mb-1">{produto.tag}</p>
-                <h3 className="text-lg font-black text-white mb-2 leading-tight">{produto.nome}</h3>
-                <p className="text-xs font-medium text-gray-300 opacity-90 mb-4">{produto.descricao}</p>
+                <p className="text-[#c9e832] text-[10px] font-black uppercase mb-1">{produto.tag}</p>
+                <h3 className="text-sm font-bold text-white mb-1.5 leading-tight line-clamp-2">{produto.nome}</h3>
+                <p className="text-[11px] text-gray-300 opacity-80 mb-3 line-clamp-2">{produto.descricao}</p>
               </div>
 
               <div>
-                <div className="text-xl font-black text-white mb-4">{produto.preco}</div>
+                <div className="text-base font-black text-white mb-3">{produto.preco}</div>
                 <a 
                   href={produto.link} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="w-full bg-[#E8D359] hover:bg-[#d5bf4e] text-[#19382B] text-xs font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
+                  className="w-full bg-[#c9e832] hover:bg-[#b8d625] text-[#0a1e14] text-xs font-black py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm"
                 >
-                  Ver en Mercado Libre <ArrowUpRight className="w-4 h-4" />
+                  Ver en Mercado Libre <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
@@ -270,29 +275,38 @@ export default function MedIndicaPage() {
         </div>
       </section>
 
-      {/* FOOTER / BANNER DE CONFIANÇA */}
-      <section className="px-8 max-w-7xl mx-auto mt-16">
-        <div className="bg-[#142d22] border-2 border-white/10 text-white rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* 5. BANNER DE CONFIANÇA */}
+      <section className="px-8 max-w-7xl mx-auto mt-12">
+        <div className="bg-[#0f2d1f] border border-white/10 text-white rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-black uppercase">Tu futuro también se prepara acá</h3>
-            <p className="text-xs text-gray-300">Envíos seguros e integrados con Mercado Libre.</p>
+            <h3 className="text-xl font-black uppercase">Tu futuro también se prepara acá ♡</h3>
+            <p className="text-xs text-gray-300 mt-1">Envíos seguros e integrados con Mercado Libre Argentina.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 text-xs font-bold opacity-90">
-            <span>📦 Envíos a toda Argentina</span>
-            <span>🔒 Compra segura en Mercado Libre</span>
-            <span>💳 Pagos en cuotas</span>
+          <div className="flex flex-wrap justify-center gap-6 text-xs font-bold text-gray-200">
+            <span className="flex items-center gap-1.5">📦 Envíos a toda Argentina</span>
+            <span className="flex items-center gap-1.5">🔒 Compra segura en Mercado Libre</span>
+            <span className="flex items-center gap-1.5">💳 Pagos en cuotas</span>
           </div>
         </div>
       </section>
 
-      {/* RODAPÉ */}
-      <footer className="mt-16 border-t border-white/10 py-8 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-gray-300">
+      {/* 6. RODAPÉ */}
+      <footer className="mt-16 border-t border-white/10 pt-8 px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
         <div className="flex items-center gap-2">
-          <div className="bg-[#E8D359] text-[#19382B] p-1 rounded font-black">+</div>
-          <span>med.indica — El kit extraoficial de la facu</span>
+          <div className="bg-[#c9e832] text-[#0a1e14] p-1 rounded font-black text-xs">+</div>
+          <span className="font-bold text-white">medíndica.</span>
+          <span className="opacity-70">— El kit extraoficial de la facu</span>
         </div>
-        <div className="opacity-90">
+
+        <div className="flex items-center gap-4">
+          <Instagram className="w-4 h-4 cursor-pointer hover:text-white transition" />
+          <MessageCircle className="w-4 h-4 cursor-pointer hover:text-white transition" />
+          <Play className="w-4 h-4 cursor-pointer hover:text-white transition" />
+        </div>
+
+        <div className="opacity-80 text-right">
           Estudiantes de hoy, médicos del mañana ♡
+          <div className="text-[10px] text-gray-500 mt-0.5">© 2026 Medindica. Todos los derechos reservados.</div>
         </div>
       </footer>
 
