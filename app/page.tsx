@@ -86,7 +86,7 @@ export default function MedIndicaPage() {
   ];
 
   // ========================================================================
-  // 🛒 2. PRODUTOS DAS ABAS INTERATIVAS (COM CARREGADOR DE IPHONE)
+  // 🛒 2. PRODUTOS DAS ABAS INTERATIVAS
   // ========================================================================
   const produtosCalouro = [
     {
@@ -98,6 +98,7 @@ export default function MedIndicaPage() {
       descricaoPT: "Essencial para o mate e café nas madrugadas de estudo.",
       descricaoES: "Esencial para el mate y café en las madrugadas de estudio.",
       link: "https://www.mercadolibre.com.ar", 
+      imagem: "",
       icone: <Coffee className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -112,6 +113,7 @@ export default function MedIndicaPage() {
       descricaoPT: "Salva o seu pescoço nas horas de leitura de Crecimiento y Desarrollo.",
       descricaoES: "Salva tu cuello en las horas de lectura de Crecimiento y Desarrollo.",
       link: "#",
+      imagem: "",
       icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -123,6 +125,7 @@ export default function MedIndicaPage() {
       descricaoPT: "Obrigatório para as aulas práticas de laboratório.",
       descricaoES: "Obligatorio para las clases prácticas de laboratorio.",
       link: "#",
+      imagem: "",
       icone: <Book className="w-8 h-8 text-[#19382B]" />
     },
     {
@@ -145,7 +148,8 @@ export default function MedIndicaPage() {
       nomeES: "Cargador Rápido para iPhone",
       descricaoPT: "Essencial para manter o telemóvel carregado durante os plantões e longas horas de estudo.",
       descricaoES: "Esencial para mantener el teléfono cargado durante las guardias y largas horas de estudio.",
-      link: "#", // <--- Coloque o seu link de afiliado do carregador aqui
+      link: "#",
+      imagem: "",
       icone: <Zap className="w-8 h-8 text-[#E06D53]" />
     }
   ];
@@ -160,6 +164,7 @@ export default function MedIndicaPage() {
       descricaoPT: "Tecido anti-amasso, perfeito para os plantões.",
       descricaoES: "Tela antimanchas y antiarrugas, perfecto para las guardias.",
       link: "#",
+      imagem: "",
       icone: <Activity className="w-8 h-8 text-[#E06D53]" />
     },
     {
@@ -171,6 +176,7 @@ export default function MedIndicaPage() {
       descricaoPT: "A melhor acústica para Semiologia. Investimento para a vida.",
       descricaoES: "La mejor acústica para Semiología. Inversión para toda la vida.",
       link: "#",
+      imagem: "",
       icone: <Stethoscope className="w-8 h-8 text-[#E06D53]" />
     }
   ];
