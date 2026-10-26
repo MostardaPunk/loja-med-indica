@@ -113,9 +113,9 @@ export default function MedIndicaPage() {
       nomeES: "Soporte Ergonómico Notebook",
       descricaoPT: "Salva o seu pescoço nas horas de leitura de Crecimiento y Desarrollo.",
       descricaoES: "Salva tu cuello en las horas de lectura de Crecimiento y Desarrollo.",
-      link: "#",
+      link: "https://meli.la/2eQLC4N",
       imagem: "",
-      preco: "Ver Oferta",
+      preco: "10.199 $",
       icone: <Laptop className="w-8 h-8 text-[#19382B]" />
     },
     {
