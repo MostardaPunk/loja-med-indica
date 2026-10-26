@@ -97,9 +97,9 @@ export default function MedIndicaPage() {
       nomeES: "Termo (Stanley/Lumilagro)",
       descricaoPT: "Essencial para o mate e café nas madrugadas de estudo.",
       descricaoES: "Esencial para el mate y café en las madrugadas de estudio.",
-      link: "https://www.mercadolibre.com.ar", 
+      link: "https://meli.la/26EHLpY", 
       imagem: "",
-      preco: "Ver Oferta",
+      preco: "156,000 $",
       icone: <Coffee className="w-8 h-8 text-[#E06D53]" />
     }
   ];
